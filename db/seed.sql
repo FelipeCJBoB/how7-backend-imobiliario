@@ -1,13 +1,10 @@
--- Tarefa "Banco de Dados" (Etapa 1, itens b e c do enunciado)
--- Passo a passo completo: cartão "Banco de Dados" no Trello / Plano de Projeto.
+-- Massa de dados — tarefa "Dados & Consulta SQL" (Integrante 2, Etapa 1).
+-- Passo a passo completo: cartões [E1] da sua lista no Trello.
 --
--- Requisitos mínimos:
---   * >= 8 imóveis, cobrindo tipos variados (ex: apartamento, casa, sala comercial, galpão)
---   * >= 30 pagamentos, distribuídos em >= 5 meses distintos
---   * todo imóvel precisa ter pelo menos 1 pagamento
-
--- TODO: INSERT INTO tipo_imovel (...)
-
--- TODO: INSERT INTO imovel (...)
-
--- TODO: INSERT INTO pagamento (...)
+-- O que este arquivo precisa ter:
+--   1. INSERT dos tipos de imóvel
+--   2. INSERT de no mínimo 8 imóveis, de tipos variados
+--   3. INSERT de no mínimo 30 pagamentos, cobrindo no mínimo 5 meses distintos
+--
+-- Todo imóvel precisa ter pelo menos 1 pagamento.
+-- A ordem importa: tipo_imovel, depois imovel, depois pagamento.

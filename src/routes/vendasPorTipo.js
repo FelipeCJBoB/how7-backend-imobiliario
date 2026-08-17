@@ -1,16 +1,10 @@
-// Tarefa "Endpoint C — percentual por tipo" (Etapa 2, item c do enunciado)
-// Passo a passo completo: cartão "Endpoint C" no Trello / Plano de Projeto.
+// GET /api/vendas-por-tipo — tarefa "Endpoint C" (Integrante 1, Etapa 2).
+// Passo a passo completo: cartões [E2] da sua lista no Trello.
 //
-// GET /api/vendas-por-tipo
-// Retorna o percentual de vendas por tipo de imóvel (map/filter/reduce — nunca SQL com
-// WHERE/GROUP BY). Reaproveita a query de db/query_join.sql, que já traz o tipo do imóvel.
-
-const express = require('express');
-const router = express.Router();
-
-router.get('/', async (req, res) => {
-  // TODO: somar por tipo_imovel com reduce(), calcular o percentual sobre o total e devolver res.json(...)
-  res.status(501).json({ erro: 'Endpoint C ainda não implementado' });
-});
-
-module.exports = router;
+// O que este arquivo precisa fazer:
+//   1. Buscar os pagamentos com a query de db/query_join.sql — sem WHERE e sem GROUP BY
+//   2. Somar o valor por tipo de imóvel usando reduce
+//   3. Calcular o total geral e o percentual de cada tipo sobre esse total
+//   4. Responder em JSON com o tipo, o total e o percentual
+//
+// Alimenta o gráfico de pizza.

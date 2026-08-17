@@ -1,15 +1,10 @@
-// Tarefa "Endpoint B — total por mês/ano" (Etapa 2, item b do enunciado)
-// Passo a passo completo: cartão "Endpoint B" no Trello / Plano de Projeto.
+// GET /api/vendas-por-mes — tarefa "Endpoint B" (Integrante 2, Etapa 2).
+// Passo a passo completo: cartões [E2] da sua lista no Trello.
 //
-// GET /api/vendas-por-mes
-// Retorna o total de vendas por mês/ano (map/filter/reduce — nunca SQL com WHERE/GROUP BY).
-
-const express = require('express');
-const router = express.Router();
-
-router.get('/', async (req, res) => {
-  // TODO: buscar todos os pagamentos, agrupar com reduce() por "MM/AAAA" e devolver res.json(...)
-  res.status(501).json({ erro: 'Endpoint B ainda não implementado' });
-});
-
-module.exports = router;
+// O que este arquivo precisa fazer:
+//   1. Buscar todos os pagamentos — sem WHERE e sem GROUP BY
+//   2. Transformar cada data_pagamento em "MM/AAAA" no JavaScript
+//   3. Somar o valor por mês/ano usando reduce
+//   4. Responder em JSON com o total de cada mês
+//
+// Alimenta o gráfico de linhas.

@@ -1,16 +1,9 @@
-// Tarefa "Endpoint A — soma por imóvel" (Etapa 2, item a do enunciado)
-// Passo a passo completo: cartão "Endpoint A" no Trello / Plano de Projeto.
+// GET /api/soma-por-imovel — tarefa "Endpoint A" (Integrante 3, Etapa 2).
+// Passo a passo completo: cartões [E2] da sua lista no Trello.
 //
-// GET /api/soma-por-imovel
-// Retorna, para cada imóvel, a soma de todos os pagamentos (map/filter/reduce — nunca SQL
-// com WHERE/GROUP BY). Reaproveita a query de db/query_join.sql.
-
-const express = require('express');
-const router = express.Router();
-
-router.get('/', async (req, res) => {
-  // TODO: buscar todos os pagamentos, agrupar com reduce() por imóvel e devolver res.json(...)
-  res.status(501).json({ erro: 'Endpoint A ainda não implementado' });
-});
-
-module.exports = router;
+// O que este arquivo precisa fazer:
+//   1. Buscar os pagamentos com JOIN em imovel — sem WHERE e sem GROUP BY
+//   2. Somar o valor por imóvel usando reduce
+//   3. Responder em JSON com o id, a descrição e o total de cada imóvel
+//
+// Alimenta o gráfico de barras.

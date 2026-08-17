@@ -1,11 +1,10 @@
--- Tarefa "Banco de Dados" (Etapa 1, item a do enunciado)
--- Passo a passo completo: cartão "Banco de Dados" no Trello / Plano de Projeto.
+-- Estrutura do banco — tarefa "Modelagem & DDL" (Integrante 1, Etapa 1).
+-- Passo a passo completo: cartões [E1] da sua lista no Trello.
 --
--- Crie aqui as 3 tabelas: tipo_imovel, imovel (FK tipo_imovel) e pagamento (FK imovel).
--- Ordem importa por causa das chaves estrangeiras.
-
--- TODO: CREATE TABLE tipo_imovel (...)
-
--- TODO: CREATE TABLE imovel (...)
-
--- TODO: CREATE TABLE pagamento (...)
+-- O que este arquivo precisa ter:
+--   1. Criação do banco imobiliaria
+--   2. CREATE TABLE de tipo_imovel (id, nome)
+--   3. CREATE TABLE de imovel (id, descricao, tipo_imovel_id -> FK tipo_imovel)
+--   4. CREATE TABLE de pagamento (id, data_pagamento, valor, imovel_id -> FK imovel)
+--
+-- A ordem importa: uma tabela só pode referenciar outra que já existe.
