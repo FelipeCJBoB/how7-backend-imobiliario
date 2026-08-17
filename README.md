@@ -12,16 +12,16 @@ memória com `map` / `filter` / `reduce` — nada de `WHERE` ou `GROUP BY` no SQ
 
 ## Equipe
 
-| Integrante | Usuário GitHub | Tarefa escolhida |
-|---|---|---|
-| Integrante 1 | _a preencher_ | _a preencher_ |
-| Integrante 2 | _a preencher_ | _a preencher_ |
-| Integrante 3 | _a preencher_ | _a preencher_ |
-| Integrante 4 | _a preencher_ | _a preencher_ |
-| Integrante 5 | _a preencher_ | _a preencher_ |
+Cada aluno escolhe qual **número de Integrante** quer ser e assume as duas tarefas daquele
+número — uma na Etapa 1 e outra na Etapa 2. Preencham o nome e o usuário GitHub num Pull Request.
 
-> Escolham livremente entre vocês quem fica com qual das 5 tarefas de cada etapa (ver quadro
-> Trello) e preencham a tabela acima num Pull Request.
+| Integrante | Nome | Usuário GitHub | Etapa 1 | Etapa 2 |
+|---|---|---|---|---|
+| 1 | _a preencher_ | _a preencher_ | Banco de Dados | Endpoint B — total por mês/ano |
+| 2 | _a preencher_ | _a preencher_ | Consulta SQL | Endpoint C — percentual por tipo |
+| 3 | _a preencher_ | _a preencher_ | Integração backend | Testes & atualização do PDF |
+| 4 | _a preencher_ | _a preencher_ | Especificação OpenAPI | Vídeo de apresentação |
+| 5 | _a preencher_ | _a preencher_ | Consolidação do PDF | Endpoint A — soma por imóvel |
 
 ## Estrutura
 
