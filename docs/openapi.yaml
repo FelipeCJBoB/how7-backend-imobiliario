@@ -1,0 +1,35 @@
+# Tarefa "Especificação OpenAPI" (Etapa 1, item f do enunciado)
+# Passo a passo completo: cartão "Especificação OpenAPI" no Trello / Plano de Projeto.
+# Pode editar direto aqui ou colar o resultado final do editor.swagger.io.
+
+openapi: 3.0.0
+info:
+  title: HOW VII — Backend Imobiliário
+  version: "1.0.0"
+servers:
+  - url: http://localhost:3000
+
+paths:
+  /api/soma-por-imovel:
+    get:
+      summary: Soma de pagamentos por imóvel
+      responses:
+        "200":
+          description: OK
+          # TODO: content / example de resposta
+
+  /api/vendas-por-mes:
+    get:
+      summary: Total de vendas por mês/ano
+      responses:
+        "200":
+          description: OK
+          # TODO: content / example de resposta
+
+  /api/vendas-por-tipo:
+    get:
+      summary: Percentual de vendas por tipo de imóvel
+      responses:
+        "200":
+          description: OK
+          # TODO: content / example de resposta
