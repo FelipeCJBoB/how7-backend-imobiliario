@@ -2,9 +2,10 @@
 // Passo a passo completo: cartões [E2] da sua lista no Trello.
 //
 // O que este arquivo precisa fazer:
-//   1. Buscar todos os pagamentos — sem WHERE e sem GROUP BY
-//   2. Transformar cada data_pagamento em "MM/AAAA" no JavaScript
-//   3. Somar o valor por mês/ano usando reduce
-//   4. Responder em JSON com o total de cada mês
+//   1. Criar um Router do Express
+//   2. Chamar o VendaMensalController, que faz o cálculo
+//   3. Responder o resultado em JSON com status 200, e 500 em caso de erro
+//   4. Exportar o router com module.exports
 //
+// A lógica de cálculo fica no controller, não aqui.
 // Alimenta o gráfico de linhas.

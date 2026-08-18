@@ -1,4 +1,4 @@
--- Consulta com JOIN — tarefa "Dados & Consulta SQL" (Integrante 2, Etapa 1).
+-- Consulta com JOIN — tarefa "Consulta SQL e OpenAPI" (Integrante 2, Etapa 1).
 -- Passo a passo completo: cartões [E1] da sua lista no Trello.
 --
 -- O que este arquivo precisa ter:
