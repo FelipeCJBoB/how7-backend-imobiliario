@@ -23,7 +23,7 @@ número — uma na Etapa 1 e outra na Etapa 2. Todos escrevem JavaScript em pelo
 
 | # | Nome | GitHub | Etapa 1 | Etapa 2 |
 |---|---|---|---|---|
-| 1 | _a preencher_ | _a preencher_ | Banco de dados (`schema.sql` + `seed.sql`) | Endpoint A — soma por imóvel |
+| 1 | Felipe Ramos Silva | [@FelipeCJBoB](https://github.com/FelipeCJBoB) | Banco de dados (`schema.sql` + `seed.sql`) | Endpoint A — soma por imóvel |
 | 2 | _a preencher_ | _a preencher_ | Consulta SQL (`query_join.sql`) + OpenAPI | Endpoint B — total por mês/ano |
 | 3 | _a preencher_ | _a preencher_ | Conexão e código do item (e) | Testes, prints e atualização do PDF |
 | 4 | _a preencher_ | _a preencher_ | Classes de model e controle (POO) + UML | Vídeo de apresentação |
