@@ -9,7 +9,7 @@
 --
 -- A ordem importa: uma tabela só pode referenciar outra que já existe.
 
-CREATE DATABASE IF NOTE EXISTS imobiliaria;
+CREATE DATABASE IF NOT EXISTS imobiliaria;
 USE imobiliaria;
 CREATE TABLE tipo_imovel (
     id INT AUTO_INCREMENT PRIMARY KEY,
