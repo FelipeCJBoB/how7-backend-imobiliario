@@ -10,3 +10,53 @@
 #
 # YAML usa espaços (nunca Tab) e sempre um espaço depois dos dois-pontos.
 # Valide em https://editor.swagger.io antes de commitar.
+
+openapi: 3.0.3
+
+info:
+  title: API de Transações Imobiliárias
+  description: Serviços REST para consulta de transações imobiliárias.
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:3000
+
+paths:
+
+  /api/soma-por-imovel:
+    get:
+      summary: Soma das vendas por imóvel
+      responses:
+        '200':
+          description: Lista com o total de vendas por imóvel.
+          content:
+            application/json:
+              example:
+                - codigo_imovel: 1
+                  descricao_imovel: "Apartamento 100m2 em condomínio fechado"
+                  total_vendas: 20400.00
+
+  /api/vendas-por-mes:
+    get:
+      summary: Total de vendas por mês e ano
+      responses:
+        '200':
+          description: Lista com o total de vendas agrupadas por mês e ano.
+          content:
+            application/json:
+              example:
+                - ano: 2023
+                  mes: 8
+                  total_vendas: 16100.00
+
+  /api/vendas-por-tipo:
+    get:
+      summary: Percentual de vendas por tipo de imóvel
+      responses:
+        '200':
+          description: Lista com o percentual de vendas por tipo de imóvel.
+          content:
+            application/json:
+              example:
+                - tipo_imovel: "Apartamento"
+                  percentual: 25.0
