@@ -1,0 +1,16 @@
+{
+  "name": "how7-backend-imobiliario",
+  "version": "1.0.0",
+  "description": "Serviços REST de consulta de transações imobiliárias — Hands On Work VII (29049), UNIVALI",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mysql2": "^3.11.0"
+  }
+}

@@ -1,8 +1,22 @@
-// Conexão com o MySQL — tarefa "Integração backend" (Integrante 3, Etapa 1).
-// Passo a passo completo: cartões [E1] da sua lista no Trello.
+// src/db/connection.js
+// Responsável: Integrante 3
 //
-// O que este arquivo precisa fazer:
-//   1. Carregar as variáveis de ambiente do .env
-//   2. Criar um pool de conexão com mysql2/promise usando
-//      DB_HOST, DB_PORT, DB_USER, DB_PASSWORD e DB_NAME
-//   3. Exportar o pool, para os arquivos de rota conseguirem consultar o banco
+// Cria e exporta um pool de conexões com o MySQL, usando as credenciais
+// definidas no arquivo .env (nunca deixe essas credenciais direto no código).
+
+const path = require('path');
+require('dotenv').config({ path: path.join(__dirname, '..', '..', '.env') });
+const mysql = require('mysql2/promise');
+
+const pool = mysql.createPool({
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0
+});
+
+module.exports = pool;
