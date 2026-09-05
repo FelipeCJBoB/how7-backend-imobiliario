@@ -1,0 +1,43 @@
+@startuml DiagramaClasses
+' Diagrama de classes de domínio — sistema Imobiliária
+' Modelado sobre o schema.sql (Integrante 1).
+skinparam classAttributeIconSize 0
+skinparam class {
+    BackgroundColor #FDF6E3
+    BorderColor #268BD2
+    ArrowColor #586E75
+}
+
+class TipoImovel {
+    - id : number
+    - nome : string
+    --
+    + constructor(id, nome)
+    + {static} fromDatabase(row) : TipoImovel
+}
+
+class Imovel {
+    - id : number
+    - descricao : string
+    - tipoImovelId : number
+    - tipoImovel : TipoImovel
+    --
+    + constructor(id, descricao, tipoImovelId, tipoImovel)
+    + {static} fromDatabase(row) : Imovel
+}
+
+class Pagamento {
+    - id : number
+    - dataPagamento : Date
+    - valor : number
+    - imovelId : number
+    - imovel : Imovel
+    --
+    + constructor(id, dataPagamento, valor, imovelId, imovel)
+    + {static} fromDatabase(row) : Pagamento
+}
+
+' Cardinalidades derivadas das FKs do schema.sql
+TipoImovel "1" <-- "0..*" Imovel : tipo_imovel_id
+Imovel "1" <-- "0..*" Pagamento : imovel_id
+@enduml
