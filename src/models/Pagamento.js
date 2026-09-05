@@ -1,13 +1,58 @@
-// Classe de model Pagamento — tarefa "Classes de model e controle (POO)" (Integrante 4, Etapa 1).
-// Passo a passo completo: cartões [E1] da sua lista no Trello.
+// src/models/Pagamento.js
+// Modelo de domínio da tabela `pagamento` (schema.sql).
+// Colunas reais: id (INT), data_pagamento (DATE), valor (DECIMAL(10,2)), imovel_id (FK -> imovel).
 //
-// Representa a entidade pagamento do banco, junto do imóvel a que se refere.
-//
-// O que esta classe precisa ter:
-//   1. Um constructor que receba id, data, valor e o imóvel (uma instância de Imovel)
-//   2. ATENÇÃO: o mysql2 devolve DECIMAL como texto. Converta o valor com Number()
-//      dentro do constructor — senão as somas da Etapa 2 vão concatenar em vez de somar.
-//   3. Um método que devolva o mês/ano do pagamento no formato "MM/AAAA"
-//   4. Um método estático que transforme uma linha da consulta com JOIN
-//      em um objeto Pagamento já montado (o mapeamento pedido no plano de ensino)
-//   5. Exportação da classe com module.exports
+// ATENÇÃO: o driver mysql2 devolve DECIMAL como TEXTO ("5000.00").
+// Por isso o constructor converte `valor` com Number() — resolve de uma vez
+// o bug que apareceria nos 3 endpoints.
+
+const Imovel = require('./Imovel');
+
+class Pagamento {
+    /**
+     * @param {number} id            - PK auto_increment.
+     * @param {string|Date} dataPagamento - Data do pagamento.
+     * @param {number} valor         - Valor já convertido para número.
+     * @param {number} imovelId      - Chave estrangeira para imovel.
+     * @param {Imovel|null} imovel   - Objeto Imovel associado (opcional).
+     */
+    constructor(id, dataPagamento, valor, imovelId, imovel = null) {
+        this.id = id;
+        this.dataPagamento = dataPagamento;
+        this.valor = Number(valor); // DECIMAL vem como texto -> vira número
+        this.imovelId = imovelId;
+        this.imovel = imovel;
+    }
+
+    /**
+     * Transforma uma linha crua do banco (mysql2) em um objeto Pagamento.
+     * Suporta tanto a tabela `pagamento` pura quanto a linha do JOIN
+     * (query_join.sql), que traz `id_venda`, `data_do_pagamento`,
+     * `valor_do_pagamento` + dados do imóvel.
+     * @param {object} row
+     * @returns {Pagamento}
+     */
+    static fromDatabase(row) {
+        // Caso venha da linha do JOIN (query_join.sql)
+        if (row.id_venda !== undefined) {
+            const imovel = Imovel.fromDatabase(row);
+            return new Pagamento(
+                Number(row.id_venda),
+                row.data_do_pagamento,
+                Number(row.valor_do_pagamento), // DECIMAL como texto -> número
+                imovel.id,
+                imovel
+            );
+        }
+
+        // Caso venha da tabela `pagamento` pura
+        return new Pagamento(
+            Number(row.id),
+            row.data_pagamento,
+            Number(row.valor), // DECIMAL como texto -> número
+            row.imovel_id !== undefined ? Number(row.imovel_id) : null
+        );
+    }
+}
+
+module.exports = Pagamento;
