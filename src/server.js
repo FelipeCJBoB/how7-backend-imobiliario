@@ -21,8 +21,8 @@ app.get('/', (req, res) => {
 // ---- Registro das rotas de cada integrante ----
 // Cada um descomenta/acrescenta a sua linha aqui quando o endpoint estiver pronto:
 //
-// const vendasPorImovel = require('./routes/vendasPorImovel'); // Integrante 1
-// app.use('/api/soma-por-imovel', vendasPorImovel);
+const vendasPorImovel = require('./routes/vendasPorImovel'); // Integrante 1
+app.use('/api/soma-por-imovel', vendasPorImovel);
 //
 // const vendasPorMes = require('./routes/vendasPorMes'); // Integrante 2
 // app.use('/api/vendas-por-mes', vendasPorMes);
