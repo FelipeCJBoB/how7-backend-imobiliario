@@ -5,7 +5,7 @@
 
 const express = require('express');
 
-const VendaMensalController = require('../controllers/vendaMensalController');
+const VendaMensalController = require('../controllers/VendaMensalController');
 
 const router = express.Router();
 
