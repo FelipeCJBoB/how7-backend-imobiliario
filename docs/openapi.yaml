@@ -1,16 +1,3 @@
-# Especificação OpenAPI — tarefa "Consulta SQL e OpenAPI" (Integrante 2, Etapa 1).
-# Passo a passo completo: cartões [E1] da sua lista no Trello.
-#
-# O que este arquivo precisa ter:
-#   1. Cabeçalho: openapi, info (title, description, version) e servers
-#   2. Um bloco em paths para cada uma das 3 rotas:
-#      /api/soma-por-imovel, /api/vendas-por-mes e /api/vendas-por-tipo
-#   3. Em cada rota: método get, summary e a resposta '200' com description
-#   4. Um exemplo de JSON dentro de cada resposta
-#
-# YAML usa espaços (nunca Tab) e sempre um espaço depois dos dois-pontos.
-# Valide em https://editor.swagger.io antes de commitar.
-
 openapi: 3.0.3
 
 info:
@@ -22,7 +9,6 @@ servers:
   - url: http://localhost:3000
 
 paths:
-
   /api/soma-por-imovel:
     get:
       summary: Soma das vendas por imóvel
@@ -32,9 +18,9 @@ paths:
           content:
             application/json:
               example:
-                - codigo_imovel: 1
-                  descricao_imovel: "Apartamento 100m2 em condomínio fechado"
-                  total_vendas: 20400.00
+                codigo_imovel: 1
+                descricao_imovel: "Apartamento 100m2 em condomínio fechado"
+                total_vendas: 20400.00
 
   /api/vendas-por-mes:
     get:
@@ -45,18 +31,40 @@ paths:
           content:
             application/json:
               example:
-                - ano: 2023
-                  mes: 8
-                  total_vendas: 16100.00
+                - mesAno: "08/2023"
+                  total: 16100
+                - mesAno: "09/2023"
+                  total: 26700
+                - mesAno: "10/2023"
+                  total: 23650
+                - mesAno: "11/2023"
+                  total: 29000
+                - mesAno: "12/2023"
+                  total: 33500
+                - mesAno: "01/2024"
+                  total: 25900
 
   /api/vendas-por-tipo:
     get:
       summary: Percentual de vendas por tipo de imóvel
       responses:
         '200':
-          description: Lista com o percentual de vendas por tipo de imóvel.
+          description: Lista com o total e percentual de vendas por tipo de imóvel.
           content:
             application/json:
               example:
-                - tipo_imovel: "Apartamento"
-                  percentual: 25.0
+                - tipoImovel: "Apartamento"
+                  total: 40400
+                  percentual: 26.09
+                - tipoImovel: "Casa"
+                  total: 26150
+                  percentual: 16.89
+                - tipoImovel: "Sala Comercial"
+                  total: 21100
+                  percentual: 13.63
+                - tipoImovel: "Terreno"
+                  total: 28600
+                  percentual: 18.47
+                - tipoImovel: "Galpão"
+                  total: 38600
+                  percentual: 24.93
