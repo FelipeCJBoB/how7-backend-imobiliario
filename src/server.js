@@ -27,8 +27,8 @@ app.use('/api/soma-por-imovel', vendasPorImovel);
 const vendasPorMes = require('./routes/vendasPorMes'); // Integrante 2
 app.use('/api/vendas-por-mes', vendasPorMes);
 //
-// const vendasPorTipo = require('./routes/vendasPorTipo'); // Integrante 5
-// app.use('/api/vendas-por-tipo', vendasPorTipo);
+const vendasPorTipo = require('./routes/vendasPorTipo'); // Integrante 5
+app.use('/api/vendas-por-tipo', vendasPorTipo);
 
 app.listen(PORT, () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`);

@@ -9,8 +9,16 @@
 --
 -- A ordem importa: uma tabela só pode referenciar outra que já existe.
 
-CREATE DATABASE IF NOT EXISTS imobiliaria;
+-- Adicione CHARACTER SET e COLLATE na criação do banco:
+CREATE DATABASE IF NOT EXISTS imobiliaria
+  CHARACTER SET utf8mb4
+  COLLATE utf8mb4_unicode_ci;
+
 USE imobiliaria;
+
+-- Força a sessão atual a ler e gravar em UTF-8:
+SET NAMES utf8mb4;
+
 CREATE TABLE tipo_imovel (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(50) NOT NULL
