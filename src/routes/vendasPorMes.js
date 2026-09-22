@@ -1,8 +1,3 @@
-// GET /api/vendas-por-mes — tarefa "Endpoint B" (Integrante 2, Etapa 2).
-
-// A lógica de cálculo fica no controller, não aqui.
-// Alimenta o gráfico de linhas.
-
 const express = require('express');
 
 const VendaMensalController = require('../controllers/VendaMensalController');

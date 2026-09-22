@@ -1,9 +1,3 @@
-// src/db/connection.js
-// Responsável: Integrante 3
-//
-// Cria e exporta um pool de conexões com o MySQL, usando as credenciais
-// definidas no arquivo .env (nunca deixe essas credenciais direto no código).
-
 const path = require('path');
 require('dotenv').config({ path: path.join(__dirname, '..', '..', '.env') });
 const mysql = require('mysql2/promise');
@@ -14,11 +8,10 @@ const pool = mysql.createPool({
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
-  charset: 'utf8mb4', // <--- Garante que a API sempre leia acentos corretamente
+  charset: 'utf8mb4',
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0
 });
-
 
 module.exports = pool;

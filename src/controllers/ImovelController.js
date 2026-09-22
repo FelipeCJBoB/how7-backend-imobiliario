@@ -1,11 +1,3 @@
-// Controle do Endpoint A — tarefa "Endpoint A" (Integrante 1, Etapa 2).
-// Passo a passo completo: cartões [E2] da sua lista no Trello.
-//
-// Classe de controle que calcula o total pago por imóvel.
-//
-// Usa POO (as classes de model) para representar os dados e programação
-// funcional (map/reduce) para processá-los — os dois paradigmas do enunciado.
-
 const fs = require('fs');
 const path = require('path');
 const pool = require('../db/connection');
@@ -17,13 +9,6 @@ const QUERY_JOIN = fs.readFileSync(
 );
 
 class ImovelController {
-  /**
-   * Retorna, para cada imóvel, o id, a descrição e a soma de todos os
-   * pagamentos associados a ele. Não usa WHERE nem GROUP BY no SQL — a
-   * consulta traz todas as linhas (query_join.sql) e o agrupamento/soma
-   * acontece aqui, em JavaScript, com reduce.
-   * @returns {Promise<Array<{codigo_imovel:number, descricao_imovel:string, total_vendas:number}>>}
-   */
   static async somaPorImovel() {
     const [rows] = await pool.query(QUERY_JOIN);
     const pagamentos = rows.map((row) => Pagamento.fromDatabase(row));
@@ -43,7 +28,6 @@ class ImovelController {
       return acumulado;
     }, {});
 
-    // Arredonda pra 2 casas decimais (soma de float pode gerar dízimas, ex. 0.1 + 0.2)
     return Object.values(totaisPorImovel).map((item) => ({
       ...item,
       total_vendas: Math.round(item.total_vendas * 100) / 100,

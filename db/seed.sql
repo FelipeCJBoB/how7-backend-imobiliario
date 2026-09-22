@@ -1,17 +1,5 @@
--- Massa de dados — tarefa "Banco de dados" (Integrante 1, Etapa 1).
--- Passo a passo completo: cartões [E1] da sua lista no Trello.
---
--- O que este arquivo precisa ter:
---   1. INSERT dos tipos de imóvel
---   2. INSERT de no mínimo 8 imóveis, de tipos variados
---   3. INSERT de no mínimo 30 pagamentos, cobrindo no mínimo 5 meses distintos
---
--- Todo imóvel precisa ter pelo menos 1 pagamento.
--- A ordem importa: tipo_imovel, depois imovel, depois pagamento.
-
 USE imobiliaria;
 
--- 1. Tipos de imóvel
 INSERT INTO tipo_imovel (nome) VALUES
 ('Apartamento'),
 ('Casa'),
@@ -19,7 +7,6 @@ INSERT INTO tipo_imovel (nome) VALUES
 ('Terreno'),
 ('Galpão');
 
--- 2. Imóveis (8 no mínimo, tipos variados)
 INSERT INTO imovel (descricao, tipo_imovel_id) VALUES
 ('Apartamento 100m2 em condomínio fechado', 1),
 ('Apartamento 60m2 no centro', 1),
@@ -30,7 +17,6 @@ INSERT INTO imovel (descricao, tipo_imovel_id) VALUES
 ('Terreno 500m2 em bairro residencial', 4),
 ('Galpão industrial 800m2', 5);
 
--- 3. Pagamentos (30 no mínimo, cobrindo 5+ meses distintos)
 INSERT INTO pagamento (data_pagamento, valor, imovel_id) VALUES
 ('2023-08-10', 5000.00, 1),
 ('2023-08-15', 4800.00, 2),

@@ -1,22 +1,9 @@
--- Estrutura do banco — tarefa "Modelagem & DDL" (Integrante 1, Etapa 1).
--- Passo a passo completo: cartões [E1] da sua lista no Trello.
---
--- O que este arquivo precisa ter:
---   1. Criação do banco imobiliaria
---   2. CREATE TABLE de tipo_imovel (id, nome)
---   3. CREATE TABLE de imovel (id, descricao, tipo_imovel_id -> FK tipo_imovel)
---   4. CREATE TABLE de pagamento (id, data_pagamento, valor, imovel_id -> FK imovel)
---
--- A ordem importa: uma tabela só pode referenciar outra que já existe.
-
--- Adicione CHARACTER SET e COLLATE na criação do banco:
 CREATE DATABASE IF NOT EXISTS imobiliaria
   CHARACTER SET utf8mb4
   COLLATE utf8mb4_unicode_ci;
 
 USE imobiliaria;
 
--- Força a sessão atual a ler e gravar em UTF-8:
 SET NAMES utf8mb4;
 
 CREATE TABLE tipo_imovel (
