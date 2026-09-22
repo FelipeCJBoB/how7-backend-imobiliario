@@ -75,6 +75,7 @@ how7-backend-imobiliario/
 │       └── vendasPorTipo.js          — Integrante 5
 ├── docs/
 │   ├── openapi.yaml             — Integrante 2  (especificação da API)
+│   ├── modelos.md               — Integrante 4  (guia das classes de model)
 │   ├── uml/                      — Integrante 4  (diagrama de classes)
 │   ├── prints/                    — prints dos testes (Etapa 2)
 │   └── entrega/                    — PDFs enviados em cada etapa
