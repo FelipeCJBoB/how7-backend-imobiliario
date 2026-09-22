@@ -10,10 +10,6 @@ por inteiro e todo o processamento acontece na linguagem de programação.
 
 O frontend (gráficos) não faz parte do escopo deste repositório.
 
-> **Este repositório é um esqueleto.** Todos os arquivos já existem, mas estão **vazios** —
-> contêm apenas comentários dizendo o que precisa ser feito e quem é o responsável.
-> Todo o código é escrito por vocês.
-
 - **Quadro Trello**: https://trello.com/b/xm1BF9Rm/how-vii-backend-imobiliario
 
 ## Equipe
@@ -27,7 +23,7 @@ número — uma na Etapa 1 e outra na Etapa 2. Todos escrevem JavaScript em pelo
 | 2 | _a preencher_ | _a preencher_ | Consulta SQL (`query_join.sql`) + OpenAPI | Endpoint B — total por mês/ano |
 | 3 | _a preencher_ | _a preencher_ | Conexão e código do item (e) | Testes, prints e atualização do PDF |
 | 4 | Fernando Menezes de Jesus | _a preencher_ | Classes de model e controle (POO) + UML | Vídeo de apresentação |
-| 5 | _a preencher_ | _a preencher_ | Consolidação do PDF da Etapa 1 | Endpoint C — percentual por tipo |
+| 5 | Letícia | _a preencher_ | Consolidação do PDF da Etapa 1 | Endpoint C — percentual por tipo |
 
 ## Arquitetura
 
@@ -40,6 +36,18 @@ Rota (Express)  →  Controller (classe)  →  Model (classes)  →  Conexão (m
 A rota só recebe a requisição e devolve JSON. O cálculo fica no controller, que usa as
 classes de model para representar os dados. É essa separação que entrega o requisito de
 orientação a objetos do enunciado.
+
+## Endpoints
+
+Todos respondem a `GET` e devolvem JSON.
+
+| Rota | Retorna | Gráfico |
+|---|---|---|
+| `/api/soma-por-imovel` | Cada imóvel com a soma de todos os seus pagamentos | Barras |
+| `/api/vendas-por-mes` | O total de vendas de cada mês/ano | Linhas |
+| `/api/vendas-por-tipo` | O percentual de cada tipo de imóvel no total de vendas | Pizza |
+
+A especificação completa, com exemplos de resposta, está em `docs/openapi.yaml`.
 
 ## Estrutura
 
@@ -55,7 +63,8 @@ how7-backend-imobiliario/
 │   ├── models/                    — Integrante 4  (POO: entidades do domínio)
 │   │   ├── TipoImovel.js
 │   │   ├── Imovel.js
-│   │   └── Pagamento.js
+│   │   ├── Pagamento.js
+│   │   └── teste.js                 (demonstração das classes)
 │   ├── controllers/               — POO: a lógica de cada serviço
 │   │   ├── ImovelController.js       — Integrante 1  (Endpoint A)
 │   │   ├── VendaMensalController.js  — Integrante 2  (Endpoint B)
@@ -69,12 +78,11 @@ how7-backend-imobiliario/
 │   ├── uml/                      — Integrante 4  (diagrama de classes)
 │   ├── prints/                    — prints dos testes (Etapa 2)
 │   └── entrega/                    — PDFs enviados em cada etapa
+├── testes/                         — Integrante 3  (testes de conexão)
 ├── .env.example
-└── .gitignore
+├── .gitignore
+└── package.json
 ```
-
-Cada arquivo abre com um comentário listando o que precisa conter. O passo a passo detalhado
-está nos cartões da sua lista no Trello.
 
 ## Preparando o ambiente
 
@@ -87,18 +95,21 @@ está nos cartões da sua lista no Trello.
 3. Copie `.env.example` para `.env` e preencha com as credenciais do seu MySQL local.
    O `.env` nunca vai para o GitHub.
 4. Rode `db/schema.sql` e depois `db/seed.sql` no MySQL Workbench (nessa ordem).
-5. Confirme que o seu ambiente está igual ao do resto do grupo:
+5. Confirme que o seu ambiente está igual ao do resto do grupo. O resultado deve ser **32**:
    ```sql
    SELECT COUNT(*) FROM pagamento;
    ```
-   Todo mundo deve ver o mesmo número.
+6. Instale as dependências (`express`, `mysql2`, `dotenv`) e ligue o servidor:
+   ```bash
+   npm install
+   npm start
+   ```
+   O servidor sobe em `http://localhost:3000`.
 
-O `package.json` e a instalação das dependências (`express`, `mysql2`, `dotenv`) fazem parte
-da tarefa **Conexão e código do item (e)** — ele ainda não existe aqui de propósito.
-
-## Ponto em aberto com o professor
+## Decisão sobre o item (c)
 
 O item (c) da Parte 2 pede *"valor percentual no total de vendas **(quantitativas)**"*, mas a
 descrição do gráfico de pizza fala em *"percentual do **valor total** das vendas"*. São
-resultados diferentes: percentual por soma de valores ou por contagem de vendas. Confirmem
-antes de implementar o Endpoint C.
+resultados diferentes. Por isso `/api/vendas-por-tipo` devolve as duas leituras:
+`percentualPorValor` (sobre a soma dos valores) e `percentualPorQuantidade` (sobre o número
+de vendas).
