@@ -20,7 +20,28 @@ paths:
               example:
                 - codigo_imovel: 1
                   descricao_imovel: "Apartamento 100m2 em condomínio fechado"
-                  total_vendas: 20400.00
+                  total_vendas: 20600
+                - codigo_imovel: 2
+                  descricao_imovel: "Apartamento 60m2 no centro"
+                  total_vendas: 19800
+                - codigo_imovel: 3
+                  descricao_imovel: "Casa 3 quartos com quintal"
+                  total_vendas: 13400
+                - codigo_imovel: 4
+                  descricao_imovel: "Casa geminada 2 quartos"
+                  total_vendas: 12750
+                - codigo_imovel: 5
+                  descricao_imovel: "Sala comercial 40m2 no centro"
+                  total_vendas: 10350
+                - codigo_imovel: 6
+                  descricao_imovel: "Sala comercial em galeria"
+                  total_vendas: 10750
+                - codigo_imovel: 7
+                  descricao_imovel: "Terreno 500m2 em bairro residencial"
+                  total_vendas: 28600
+                - codigo_imovel: 8
+                  descricao_imovel: "Galpão industrial 800m2"
+                  total_vendas: 38600
 
   /api/vendas-por-mes:
     get:
@@ -49,22 +70,36 @@ paths:
       summary: Percentual de vendas por tipo de imóvel
       responses:
         '200':
-          description: Lista com o total e percentual de vendas por tipo de imóvel.
+          description: >-
+            Lista, para cada tipo de imóvel, o valor total vendido e a quantidade de vendas,
+            com o percentual de cada um sobre o total geral. O percentual é calculado pelas
+            duas leituras do enunciado: sobre o valor total das vendas (percentualPorValor)
+            e sobre a quantidade de vendas (percentualPorQuantidade).
           content:
             application/json:
               example:
                 - tipoImovel: "Apartamento"
-                  total: 40400
-                  percentual: 26.09
+                  totalValor: 40400
+                  percentualPorValor: 26.09
+                  quantidadeVendas: 8
+                  percentualPorQuantidade: 25
                 - tipoImovel: "Casa"
-                  total: 26150
-                  percentual: 16.89
+                  totalValor: 26150
+                  percentualPorValor: 16.89
+                  quantidadeVendas: 8
+                  percentualPorQuantidade: 25
                 - tipoImovel: "Sala Comercial"
-                  total: 21100
-                  percentual: 13.63
+                  totalValor: 21100
+                  percentualPorValor: 13.63
+                  quantidadeVendas: 8
+                  percentualPorQuantidade: 25
                 - tipoImovel: "Terreno"
-                  total: 28600
-                  percentual: 18.47
+                  totalValor: 28600
+                  percentualPorValor: 18.47
+                  quantidadeVendas: 4
+                  percentualPorQuantidade: 12.5
                 - tipoImovel: "Galpão"
-                  total: 38600
-                  percentual: 24.93
+                  totalValor: 38600
+                  percentualPorValor: 24.93
+                  quantidadeVendas: 4
+                  percentualPorQuantidade: 12.5
