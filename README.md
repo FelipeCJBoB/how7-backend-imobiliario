@@ -11,6 +11,7 @@ por inteiro e todo o processamento acontece na linguagem de programação.
 O frontend (gráficos) não faz parte do escopo deste repositório.
 
 - **Quadro Trello**: https://trello.com/b/xm1BF9Rm/how-vii-backend-imobiliario
+- **Vídeo de apresentação (Etapa 2)**: https://youtu.be/4OvxCt7qC5c — cópia em `docs/video/apresentacao-etapa2.mp4`
 
 ## Equipe
 
@@ -20,10 +21,10 @@ número — uma na Etapa 1 e outra na Etapa 2. Todos escrevem JavaScript em pelo
 | # | Nome | GitHub | Etapa 1 | Etapa 2 |
 |---|---|---|---|---|
 | 1 | Felipe Ramos Silva | [@FelipeCJBoB](https://github.com/FelipeCJBoB) | Banco de dados (`schema.sql` + `seed.sql`) | Endpoint A — soma por imóvel |
-| 2 | _a preencher_ | _a preencher_ | Consulta SQL (`query_join.sql`) + OpenAPI | Endpoint B — total por mês/ano |
-| 3 | _a preencher_ | _a preencher_ | Conexão e código do item (e) | Testes, prints e atualização do PDF |
+| 2 | Felipe Ribeiro | _a preencher_ | Consulta SQL (`query_join.sql`) + OpenAPI | Endpoint B — total por mês/ano |
+| 3 | João Gabriel Kuhn Burigo | [@iofme](https://github.com/iofme) | Conexão e código do item (e) | Testes, prints e atualização do PDF |
 | 4 | Fernando Menezes de Jesus | _a preencher_ | Classes de model e controle (POO) + UML | Vídeo de apresentação |
-| 5 | Letícia | _a preencher_ | Consolidação do PDF da Etapa 1 | Endpoint C — percentual por tipo |
+| 5 | Letícia Lamara Vieira dos Anjos | [@leticialamarav-png](https://github.com/leticialamarav-png) | Consolidação do PDF da Etapa 1 | Endpoint C — percentual por tipo |
 
 ## Arquitetura
 
@@ -78,7 +79,8 @@ how7-backend-imobiliario/
 │   ├── modelos.md               — Integrante 4  (guia das classes de model)
 │   ├── uml/                      — Integrante 4  (diagrama de classes)
 │   ├── prints/                    — prints dos testes (Etapa 2)
-│   └── entrega/                    — PDFs enviados em cada etapa
+│   ├── entrega/                    — PDFs enviados em cada etapa
+│   └── video/                      — Integrante 4  (vídeo de apresentação da Etapa 2)
 ├── testes/                         — Integrante 3  (testes de conexão)
 ├── .env.example
 ├── .gitignore
